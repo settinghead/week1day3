@@ -8,16 +8,16 @@ function removeSpaces(str){
 
 function buildletterCountingObj(str){
   var newStr = removeSpaces(lowerCase(str));
-  var letterCountingObj = {};
+  var newObj = {};
 
   for(var i = 0; i < newStr.length; i++){
-    if (!letterCountingObj.hasOwnProperty(newStr[i])){
-      letterCountingObj[newStr[i]] = 1;
+    if (!newObj.hasOwnProperty(newStr[i])){
+      newObj[newStr[i]] = [i];
     }else{
-      letterCountingObj[newStr[i]] += 1;
+      newObj[newStr[i]].push(i);
     }
   }
-  return letterCountingObj;
+  return newObj;
 }
 
 console.log(buildletterCountingObj("lighthouse in the house"));
