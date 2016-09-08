@@ -1,8 +1,8 @@
 function calculateSales(salesData){
-  for(var i=0; i<salesData.length; i++){
+  for (var i = 0; i < salesData.length; i++){
     salesData[i].sales = sum(salesData[i].sales);
   }
-  return companySalesData;
+  return salesData;
 }
 
 function sum(arr){
@@ -15,9 +15,9 @@ function sum(arr){
 
 function addLocalTax(sales, taxRates){
   var arr = calculateSales(sales);
-  for(var i = 0; i < sales.length; i++){
+  for (var i = 0; i < sales.length; i++){
     var prov = arr[i].province;
-    var tax = arr[i].sales * taxRates[prov];
+    var tax =  arr[i].sales * taxRates[prov];
 
     arr[i].localTax = tax;
   }
@@ -25,7 +25,7 @@ function addLocalTax(sales, taxRates){
 }
 
 function calculateSalesTax(sales, taxRates){
-  var arr = addLocalTax(sales,taxRates);
+  var arr = addLocalTax(sales, taxRates);
   var newObj = {};
   for (var i = 0; i < arr.length; i++){
     var obj = arr[i];
@@ -66,5 +66,4 @@ var companySalesData = [
   }
 ];
 
-// console.log(calculateSales(companySalesData));
 console.log(calculateSalesTax(companySalesData, taxRates));
