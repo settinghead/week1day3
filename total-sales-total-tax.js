@@ -17,7 +17,7 @@ function addLocalTax(sales, taxRates){
   var arr = calculateSales(sales);
   for (var i = 0; i < sales.length; i++){
     var prov = arr[i].province;
-    var tax =  arr[i].sales * taxRates[prov];
+    var tax = arr[i].sales * taxRates[prov];
 
     arr[i].localTax = tax;
   }
